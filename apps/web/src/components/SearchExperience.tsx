@@ -526,6 +526,31 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
             </button>
           ))}
         </div>
+
+        {/* Dynamic Developer Badge based on portfolio details */}
+        {!hasSearched && (
+          <div className="landing-dev-badge">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://www.myrentalfind.com/dev/mohammad-usman.png"
+              alt="Mohammad Usman"
+              className="dev-avatar"
+            />
+            <div className="dev-info">
+              <span className="dev-title">طوّر بواسطة محمد عثمان</span>
+              <span className="dev-subtitle">مطور تطبيقات ومصمم واجهات</span>
+            </div>
+            <a
+              href="https://portfolio-mohammad.web.app/yameen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="dev-arrow-link"
+              title="عرض معرض الأعمال"
+            >
+              ↗
+            </a>
+          </div>
+        )}
       </section>
 
       {/* Main Workspace Layout (split results pane and slide-out reader panel) */}
@@ -1076,11 +1101,11 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
       </div>
 
       <footer className="app-footer">
-        <div>fiqh.ai · منصة البحث المرجعي الفقهي الذكي · تم التطوير بواسطة عثمان</div>
+        <div>fiqh.ai · منصة البحث المرجعي الفقهي الذكي</div>
         <div style={{ marginTop: 6, fontSize: '11px', opacity: 0.85 }}>
           تطوير البرمجيات والواجهة:{" "}
           <a
-            href="https://portfolio-mohammad.web.app/"
+            href="https://portfolio-mohammad.web.app/yameen"
             target="_blank"
             rel="noopener noreferrer"
             className="dev-credit-link"
