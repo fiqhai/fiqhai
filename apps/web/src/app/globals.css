@@ -1925,3 +1925,18 @@ button:focus-visible {
 .goto-top-btn:active {
   transform: scale(0.95);
 }
+
+/* ─── Developer Credit Link ─── */
+.dev-credit-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s var(--ease-out);
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 1px;
+}
+
+.dev-credit-link:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}

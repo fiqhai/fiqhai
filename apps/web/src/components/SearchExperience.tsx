@@ -1076,7 +1076,18 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
       </div>
 
       <footer className="app-footer">
-        fiqh.ai · منصة البحث المرجعي الفقهي الذكي · تم التطوير بواسطة عثمان
+        <div>fiqh.ai · منصة البحث المرجعي الفقهي الذكي · تم التطوير بواسطة عثمان</div>
+        <div style={{ marginTop: 6, fontSize: '11px', opacity: 0.85 }}>
+          تطوير البرمجيات والواجهة:{" "}
+          <a
+            href="https://portfolio-mohammad.web.app/yameen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="dev-credit-link"
+          >
+            محمد يامين
+          </a>
+        </div>
       </footer>
     </div>
   );
