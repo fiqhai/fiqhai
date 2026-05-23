@@ -241,7 +241,7 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
     const updated = selectedBooks.includes(bookId)
       ? selectedBooks.filter((id) => id !== bookId)
       : [...selectedBooks, bookId];
-    
+
     setSelectedBooks(updated);
     updateUrlParams({ bookIds: updated });
     if (query.trim().length >= 2) {
@@ -263,7 +263,7 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
     const updated = isBookmarked
       ? bookmarks.filter((b) => b.id !== result.id)
       : [result, ...bookmarks];
-    
+
     setBookmarks(updated);
     if (isBookmarked) {
       showToast("تم إزالة الإشارة المرجعية");
@@ -987,13 +987,13 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
 
             <div className="modal-body book-details-body">
               <h2 className="book-details-title">📖 {activeBook.title}</h2>
-              
+
               <div className="book-details-grid">
                 <div className="detail-item">
                   <span className="detail-label">المؤلف والفقيه</span>
                   <span className="detail-value">{activeBook.authors.join("، ") || "مؤلف غير محدد"}</span>
                 </div>
-                
+
                 <div className="detail-item">
                   <span className="detail-label">التصنيف الفقهي</span>
                   <span className="detail-value">
@@ -1080,12 +1080,12 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
         <div style={{ marginTop: 6, fontSize: '11px', opacity: 0.85 }}>
           تطوير البرمجيات والواجهة:{" "}
           <a
-            href="https://portfolio-mohammad.web.app/yameen"
+            href="https://portfolio-mohammad.web.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="dev-credit-link"
           >
-            محمد يامين
+            محمد عثمان
           </a>
         </div>
       </footer>
