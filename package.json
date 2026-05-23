@@ -1,0 +1,14 @@
+{
+  "name": "fiqh-ai",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "build:web": "npm --workspace apps/web run build",
+    "lint:web": "npm --workspace apps/web run lint",
+    "ingest": "python3 apps/api/scripts/ingest_books.py",
+    "search": "python3 apps/api/scripts/search_books.py"
+  }
+}
