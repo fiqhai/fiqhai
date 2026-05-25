@@ -1,0 +1,472 @@
+# 1. Add Multi-Layer Evidence Chains (Very High Impact)
+
+Right now you retrieve passages.
+
+Next: retrieve **legal relationships** between passages.
+
+Example:
+
+User searches:
+
+> هل الماء المستعمل طاهر؟
+
+Instead of isolated chunks, show:
+
+* Primary ruling from اللباب في شرح الكتاب
+* Supporting evidences from:
+
+  * بدائع الصنائع
+  * رد المحتار
+* Disagreement notes
+* Preferred fatwa opinion
+* Usul basis
+* Related qa‘ida fiqhiyya
+
+This transforms the app from:
+
+> “search engine”
+
+into:
+
+> “scholarly reasoning graph.”
+
+## Implementation
+
+Create:
+
+```sql
+related_chunks (
+  source_chunk_id INTEGER,
+  target_chunk_id INTEGER,
+  relation_type TEXT
+)
+```
+
+Possible relation types:
+
+* supports
+* contradicts
+* explains
+* preferred_opinion
+* evidence_for
+* derived_from
+* commentary_on
+
+This is massive for researchers.
+
+---
+
+# 2. Build an Arabic Legal Knowledge Graph
+
+This would make your app genuinely unique.
+
+Example graph:
+
+```text
+ماء مستعمل
+ ├── related to → طهارة
+ ├── disputed by → زفر
+ ├── preferred by → أبو يوسف
+ ├── discussed in → الهداية
+ └── derived from → القياس
+```
+
+Then semantic search becomes:
+
+* text retrieval
+* concept traversal
+* scholar opinion mapping
+
+You could even visualize madhhab reasoning paths.
+
+This is something major Islamic databases still lack.
+
+---
+
+# 3. Add “Scholar Mode” Citations
+
+This would make academics love it.
+
+When copying a citation:
+
+Instead of only:
+
+```text
+اللباب، ج1، ص45
+```
+
+Allow:
+
+### Classical Style
+
+```text
+(اللباب في شرح الكتاب، ج1، ص45، دار الكتب العلمية)
+```
+
+### Tahqiq Style
+
+```text
+اللباب في شرح الكتاب،
+عبد الغني الغنيمي،
+دار الكتب العلمية،
+ج1 ص45
+```
+
+### Footnote Auto-Generation
+
+```text
+¹ عبد الغني الغنيمي، اللباب في شرح الكتاب...
+```
+
+Huge value for theses and papers.
+
+---
+
+# 5. Introduce “Usul-aware Search”
+
+This would separate your system from generic semantic search.
+
+Example:
+
+User searches:
+
+> علة الربا في البر
+
+System understands:
+
+* this is an usul query
+* about مناط الحكم
+* باب الربا
+* علة
+* القياس
+
+Then prioritize:
+
+* usul discussions
+* ta‘lil sections
+* qawa‘id
+* ‘illah terminology
+
+You can do this using:
+
+```json
+{
+  "topics": [],
+  "legal_concepts": [],
+  "usul_tags": [],
+  "hukm_type": []
+}
+```
+
+stored per chunk.
+
+---
+
+# 6. Add Parallel Quran + Hadith Linking
+
+This is extremely valuable.
+
+When a fiqh ruling appears:
+
+Auto-show:
+
+* related Quran ayat
+* related hadith
+* athar
+* usul principle
+
+Example:
+
+```text
+باب المياه
+ ↳ حديث: الماء طهور...
+ ↳ آية: وأنزلنا من السماء ماء طهورا
+```
+
+This creates contextual scholarship instead of isolated passages.
+
+---
+
+# 8. Add Semantic Arabic Root Expansion
+
+Current embeddings help semantically.
+
+But Arabic legal language benefits massively from root intelligence.
+
+Example:
+
+Searching:
+
+```text
+نجاسة
+```
+
+should also intelligently consider:
+
+* نجس
+* يتنجس
+* متنجس
+* النجاسات
+
+WITHOUT noisy stemming.
+
+A custom fiqh-aware morphological layer would dramatically improve retrieval quality.
+
+---
+
+# 9. Add “Explain Why This Result Appeared”
+
+This is extremely important for trust.
+
+Under each result:
+
+```text
+Matched because:
+✓ exact phrase match
+✓ semantic similarity to "الركي"
+✓ same fiqh chapter
+✓ cited by another top-ranked passage
+```
+
+This gives scholarly transparency.
+
+---
+
+# 10. Add Full Research Workspace Features
+
+You already started this.
+
+Go further:
+
+## Add:
+
+* highlights
+* annotations
+* saved folders
+* cross-book bookmarks
+* export research session
+* side-by-side commentary comparison
+* “open all related passages”
+
+You want scholars to LIVE inside the app.
+
+---
+
+# 11. Improve Chunking Strategy
+
+This is probably one of the biggest technical gains available.
+
+Most Islamic texts are hierarchical:
+
+```text
+كتاب
+  باب
+    فصل
+      مسألة
+```
+
+Current chunking probably cuts across semantic boundaries.
+
+Instead:
+
+## Hierarchical chunking
+
+Store:
+
+```json
+{
+  "kitab": "",
+  "bab": "",
+  "fasl": "",
+  "masala": ""
+}
+```
+
+Then retrieval can rank:
+
+* same mas’ala
+* same bab
+* same kitab
+
+This improves relevance enormously.
+
+---
+
+# 12. Add AI-Powered Query Reformulation
+
+Many users search poorly.
+
+Example:
+
+```text
+ماء بير
+```
+
+System silently expands to:
+
+```text
+ماء البئر
+الركي
+المياه
+الآبار
+```
+
+This can dramatically improve retrieval without hallucinating.
+
+---
+
+# 13. Add “Fiqh Timeline”
+
+Very unique feature.
+
+Visualize development:
+
+```text
+أبو حنيفة
+  ↓
+أبو يوسف
+  ↓
+محمد
+  ↓
+الطحاوي
+  ↓
+المرغيناني
+  ↓
+ابن عابدين
+```
+
+Then show how rulings evolved historically.
+
+Researchers would love this.
+
+---
+
+# 14. Replace Pure Cosine Similarity With Hybrid Re-Ranking
+
+Your architecture is already strong.
+
+But you can improve further:
+
+## Current
+
+```text
+FTS5 + Embeddings + RRF
+```
+
+## Future
+
+```text
+FTS5
+→ ANN vector retrieval
+→ Cross-encoder reranker
+→ Final scholarly ranking
+```
+
+Use a reranker model:
+
+* Arabic MPNet
+* multilingual-e5
+* jina reranker
+
+Cross-encoders massively improve final ranking quality.
+
+---
+
+# 15. Add Confidence & Authenticity Signals
+
+Example result card:
+
+```text
+Confidence: High
+Reason:
+- exact lexical match
+- chapter alignment
+- cited by 4 classical works
+- semantic score 0.92
+```
+
+Trust matters more than flashy AI.
+
+---
+
+
+# 17. Add Arabic Linguistic Intelligence
+
+Very powerful future direction.
+
+Classical Arabic differs from modern Arabic.
+
+You can add:
+
+* tashkeel-sensitive mode
+* Ottoman spelling normalization
+* classical synonym dictionaries
+* fiqh terminology lexicon
+
+Example:
+
+```text
+الركي = البئر
+الإناء = الوعاء
+```
+
+This dramatically improves semantic retrieval.
+
+---
+
+# 18. Add “No Hallucination Guarantee” Branding
+
+This is your strongest differentiator.
+
+Market this heavily.
+
+Most AI products say:
+
+> “AI answers your questions.”
+
+You should say:
+
+> “Every answer is traceable to a printed source.”
+
+That is academically powerful.
+
+---
+
+# 19. Add Community Scholarly Verification
+
+Eventually allow trusted scholars to:
+
+* verify passages
+* tag issues
+* correct OCR
+* improve metadata
+
+Like a scholarly GitHub.
+
+---
+
+# 20. The Biggest Opportunity: Build the “Shamela for AI Era”
+
+Right now Islamic software is split:
+
+* PDFs
+* Shamela
+* search tools
+* AI chatbots
+* disconnected databases
+
+Your opportunity is to unify:
+
+```text
+Traditional verification
++
+Semantic AI
++
+Research workflow
++
+Citation safety
+```
+
+That combination is extremely rare.
+
+Your architecture is already stronger than many commercial “Islamic AI” products because you focused on retrieval integrity first.

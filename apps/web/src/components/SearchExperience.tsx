@@ -88,6 +88,7 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
   const [fontFamily, setFontFamily] = useState<"amiri" | "noto" | "cairo">("amiri");
   const [currentlyPlayingChunkId, setCurrentlyPlayingChunkId] = useState<number | null>(null);
   const [activeCitationDropdown, setActiveCitationDropdown] = useState<number | null>(null);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   // Clean TTS cancel on component unmount
   useEffect(() => {
@@ -119,10 +120,64 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
     window.speechSynthesis.speak(utterance);
   };
 
+  const getMatchReason = (result: SearchResult, queryText: string) => {
+    const textClean = result.text.replace(/[\u064B-\u0652]/g, "").toLowerCase();
+    const queryClean = queryText.replace(/[\u064B-\u0652]/g, "").toLowerCase();
+    
+    if (textClean.includes(queryClean)) {
+      return "مطابقة لفظية تامة";
+    }
+    
+    const queryWords = queryClean.split(/\s+/).filter(w => w.length > 2);
+    const matchedWords = queryWords.filter(w => textClean.includes(w));
+    if (matchedWords.length > 0) {
+      return `تطابق لفظي جزئي (${matchedWords.length} كلمات)`;
+    }
+    
+    if (result.score > 0 && result.score < 1) {
+      return "تقارب دلالي بالذكاء الاصطناعي (Semantic RRF)";
+    }
+    if (result.score === 0.0) {
+      return "سياق صفحة مجاورة";
+    }
+    return "مطابقة فهرسية (BM25)";
+  };
+
   const copyChicago = (result: SearchResult) => {
     const formatted = `${result.citation}، باب/موضوع: ${result.breadcrumb.join(" / ") || "عام"} (مقطع #${result.id})`;
     void navigator.clipboard.writeText(formatted);
     showToast("تم نسخ توثيق شيكاغو الأكاديمي ✓");
+    setActiveCitationDropdown(null);
+  };
+
+  const copyClassical = (result: SearchResult) => {
+    const publisherPart = result.publisher ? `، ناشر: ${result.publisher}` : "";
+    const volumePart = result.part_name ? `، ج${result.part_name}` : "";
+    const pagePart = result.page_number ? `، ص${result.page_number}` : "";
+    const formatted = `(${result.book_title}، تأليف: ${result.authors.join("، ") || "مؤلف غير محدد"}${publisherPart}${volumePart}${pagePart})`;
+    void navigator.clipboard.writeText(formatted);
+    showToast("تم نسخ الاقتباس التراثي ✓");
+    setActiveCitationDropdown(null);
+  };
+
+  const copyTahqiq = (result: SearchResult) => {
+    const publisherPart = result.publisher ? `الناشر: ${result.publisher}، ` : "";
+    const yearPart = result.year ? `سنة الطبع: ${result.year}، ` : "";
+    const volumePart = result.part_name ? `المجلد/الجزء: ${result.part_name}، ` : "";
+    const pagePart = result.page_number ? `الصفحة: ${result.page_number}` : "الصفحة: غير محدد";
+    const formatted = `${result.book_title}،\nتأليف: ${result.authors.join("، ") || "مؤلف غير محدد"}،\n${publisherPart}${yearPart}${volumePart}${pagePart}`;
+    void navigator.clipboard.writeText(formatted);
+    showToast("تم نسخ التوثيق والتحقيق الأكاديمي ✓");
+    setActiveCitationDropdown(null);
+  };
+
+  const copyFootnote = (result: SearchResult) => {
+    const publisherPart = result.publisher ? ` (${result.publisher})` : "";
+    const volumePart = result.part_name ? `، ج ${result.part_name}` : "";
+    const pagePart = result.page_number ? `، ص ${result.page_number}` : "";
+    const formatted = `¹ ${result.authors.join("، ") || "مؤلف غير محدد"}، ${result.book_title}${publisherPart}${volumePart}${pagePart}.`;
+    void navigator.clipboard.writeText(formatted);
+    showToast("تم نسخ صيغة الحواشي السفلية ✓");
     setActiveCitationDropdown(null);
   };
 
@@ -510,8 +565,12 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
           {/* usul.ai Landing Page Hero */}
           {!hasSearched && (
             <div className="landing-hero">
-              <h1 className="landing-logo">fiqh.ai</h1>
+              <h1 className="landing-logo font-outfit">fiqh.ai</h1>
               <p className="landing-tagline">منصة البحث المعرفي الموثق في نصوص الفقه الحنفي المعتمدة</p>
+              <div className="no-hallucination-guarantee">
+                <span className="guarantee-badge">🛡️ ضمان السلامة العلمية والأكاديمية</span>
+                <p className="guarantee-text">كل المخرجات مسترجعة حرفياً وبدقة من الطبعات الورقية المعتمدة والمحرزة؛ ولا نستخدم تقنيات التوليد اللغوي (LLMs) لتجنب أخطاء الهلوسة والتحريف تماماً.</p>
+              </div>
             </div>
           )}
 
@@ -717,6 +776,10 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                     dangerouslySetInnerHTML={{ __html: result.text_highlighted || result.text }}
                   />
 
+                  <div className="match-reason-bar">
+                    <span className="match-reason-tag">💡 سبب الظهور: {getMatchReason(result, query)}</span>
+                  </div>
+
                   <div className="card-actions">
                     <button
                       className={`action-btn ${activeContextChunkId === result.id ? "active" : ""}`}
@@ -739,6 +802,9 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                       {activeCitationDropdown === result.id && (
                         <div className="citation-dropdown-menu">
                           <button onClick={() => copyChicago(result)} type="button">✍️ توثيق شيكاغو (Chicago)</button>
+                          <button onClick={() => copyClassical(result)} type="button">🕌 الاقتباس التراثي (المخطوط)</button>
+                          <button onClick={() => copyTahqiq(result)} type="button">📖 التخريج والتحقيق الأكاديمي</button>
+                          <button onClick={() => copyFootnote(result)} type="button">📌 صيغة الحواشي (Footnote)</button>
                           <button onClick={() => copyMarkdown(result)} type="button">📝 صيغة ماركداون (Markdown)</button>
                           <button onClick={() => copyPlain(result)} type="button">📄 نص بسيط (Plain Text)</button>
                         </div>
@@ -802,6 +868,11 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                         className="passage"
                         dangerouslySetInnerHTML={{ __html: items[0].text_highlighted || items[0].text }}
                       />
+
+                      <div className="match-reason-bar">
+                        <span className="match-reason-tag">💡 سبب الظهور: {getMatchReason(items[0], query)}</span>
+                      </div>
+
                       <div className="card-actions">
                         <button
                           className={`action-btn ${activeContextChunkId === items[0].id ? "active" : ""}`}
@@ -824,6 +895,9 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                           {activeCitationDropdown === items[0].id && (
                             <div className="citation-dropdown-menu">
                               <button onClick={() => copyChicago(items[0])} type="button">✍️ توثيق شيكاغو (Chicago)</button>
+                              <button onClick={() => copyClassical(items[0])} type="button">🕌 الاقتباس التراثي (المخطوط)</button>
+                              <button onClick={() => copyTahqiq(items[0])} type="button">📖 التخريج والتحقيق الأكاديمي</button>
+                              <button onClick={() => copyFootnote(items[0])} type="button">📌 صيغة الحواشي (Footnote)</button>
                               <button onClick={() => copyMarkdown(items[0])} type="button">📝 صيغة ماركداون (Markdown)</button>
                               <button onClick={() => copyPlain(items[0])} type="button">📄 نص بسيط (Plain Text)</button>
                             </div>
@@ -865,6 +939,11 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                                     className="passage sub-passage-text"
                                     dangerouslySetInnerHTML={{ __html: subItem.text_highlighted || subItem.text }}
                                   />
+
+                                  <div className="match-reason-bar" style={{ padding: '0 12px 10px', marginTop: '-6px' }}>
+                                    <span className="match-reason-tag" style={{ fontSize: '10px' }}>💡 سبب الظهور: {getMatchReason(subItem, query)}</span>
+                                  </div>
+
                                   <div className="card-actions sub-actions">
                                     <button
                                       className={`action-btn ${activeContextChunkId === subItem.id ? "active" : ""}`}
@@ -886,6 +965,9 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                                       {activeCitationDropdown === subItem.id && (
                                         <div className="citation-dropdown-menu">
                                           <button onClick={() => copyChicago(subItem)} type="button">✍️ توثيق شيكاغو (Chicago)</button>
+                                          <button onClick={() => copyClassical(subItem)} type="button">🕌 الاقتباس التراثي (المخطوط)</button>
+                                          <button onClick={() => copyTahqiq(subItem)} type="button">📖 التخريج والتحقيق الأكاديمي</button>
+                                          <button onClick={() => copyFootnote(subItem)} type="button">📌 صيغة الحواشي (Footnote)</button>
                                           <button onClick={() => copyMarkdown(subItem)} type="button">📝 صيغة ماركداون (Markdown)</button>
                                           <button onClick={() => copyPlain(subItem)} type="button">📄 نص بسيط (Plain Text)</button>
                                         </div>
@@ -942,7 +1024,18 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
           </div>
 
           {/* Sidebar Column */}
-          <aside className="side-stack">
+          <aside className={`side-stack ${isMobileSidebarOpen ? "open" : ""}`}>
+            {/* Mobile Sidebar Close Header */}
+            <div className="mobile-sidebar-header">
+              <h3>خيارات التصفية وأدوات البحث</h3>
+              <button
+                className="close-sidebar-btn"
+                onClick={() => setIsMobileSidebarOpen(false)}
+                type="button"
+              >
+                ✕ إغلاق التصفية
+              </button>
+            </div>
             {/* Methodology Card */}
             <div className="side-panel">
               <div className="side-title">تنبيه فقهي ومنهجي</div>
@@ -1064,6 +1157,18 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
               )}
             </div>
           </aside>
+
+          {/* Floating Mobile Filter FAB */}
+          {hasSearched && (
+            <button
+              className="mobile-filters-trigger"
+              onClick={() => setIsMobileSidebarOpen(true)}
+              type="button"
+              title="تصفية المراجع والكتب وعرض السجل"
+            >
+              ⚙️ تصفية المراجع والسجل
+            </button>
+          )}
 
           {/* Context Reader Panel/Drawer */}
           <div className={`context-drawer-pane ${activeContextChunkId !== null ? "open" : ""}`}>
