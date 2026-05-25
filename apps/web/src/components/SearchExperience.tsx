@@ -82,6 +82,64 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
   const [theme, setTheme] = useState<ThemeId>("parchment");
   const [showScrollTop, setShowScrollTop] = useState(false);
 
+  // New scholarly search improvements
+  const [activeTab, setActiveTab] = useState<"search" | "about">("search");
+  const [fontSize, setFontSize] = useState(19);
+  const [fontFamily, setFontFamily] = useState<"amiri" | "noto" | "cairo">("amiri");
+  const [currentlyPlayingChunkId, setCurrentlyPlayingChunkId] = useState<number | null>(null);
+  const [activeCitationDropdown, setActiveCitationDropdown] = useState<number | null>(null);
+
+  // Clean TTS cancel on component unmount
+  useEffect(() => {
+    return () => {
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  const handlePlayTTS = (chunkId: number, text: string) => {
+    if (typeof window === "undefined" || !window.speechSynthesis) return;
+
+    if (currentlyPlayingChunkId === chunkId) {
+      window.speechSynthesis.cancel();
+      setCurrentlyPlayingChunkId(null);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+    const cleanText = text.replace(/[\u064B-\u0652]/g, "").replace(/\[.*?\]/g, "");
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    utterance.lang = "ar-SA";
+    utterance.onend = () => setCurrentlyPlayingChunkId(null);
+    utterance.onerror = () => setCurrentlyPlayingChunkId(null);
+
+    setCurrentlyPlayingChunkId(chunkId);
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const copyChicago = (result: SearchResult) => {
+    const formatted = `${result.citation}، باب/موضوع: ${result.breadcrumb.join(" / ") || "عام"} (مقطع #${result.id})`;
+    void navigator.clipboard.writeText(formatted);
+    showToast("تم نسخ توثيق شيكاغو الأكاديمي ✓");
+    setActiveCitationDropdown(null);
+  };
+
+  const copyMarkdown = (result: SearchResult) => {
+    const formatted = `> ${result.text}\n\n— *${result.citation}، باب/موضوع: ${result.breadcrumb.join(" / ") || "عام"}* (مقطع #${result.id})`;
+    void navigator.clipboard.writeText(formatted);
+    showToast("تم نسخ صيغة ماركداون (Markdown) ✓");
+    setActiveCitationDropdown(null);
+  };
+
+  const copyPlain = (result: SearchResult) => {
+    const formatted = `"${result.text}"\n[المصدر: ${result.citation}]`;
+    void navigator.clipboard.writeText(formatted);
+    showToast("تم نسخ النص المجرد بنجاح ✓");
+    setActiveCitationDropdown(null);
+  };
+
   // Widgets state
   const [bookmarks, setBookmarks] = useState<SearchResult[]>([]);
   const [history, setHistory] = useState<string[]>([]);
@@ -301,12 +359,7 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
     }
   }
 
-  // Reference copy utility
-  function copyCitation(result: SearchResult) {
-    const formatted = `${result.citation}، باب/موضوع: ${result.breadcrumb.join(" / ") || "عام"} (مقطع #${result.id})`;
-    void navigator.clipboard.writeText(formatted);
-    showToast("تم نسخ الاقتباس المرجعي ✓");
-  }
+
 
   // Initialize and Sync state on mount
   useEffect(() => {
@@ -397,6 +450,18 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close citation dropdown on clicking outside
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.citation-dropdown-wrapper')) {
+        setActiveCitationDropdown(null);
+      }
+    };
+    window.addEventListener("click", handleOutsideClick);
+    return () => window.removeEventListener("click", handleOutsideClick);
+  }, []);
+
   // Filter book list based on user search in sidebar
   const filteredBooks = books.filter((book) =>
     book.title.includes(bookSearchQuery) ||
@@ -404,14 +469,51 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
   );
 
   return (
-    <div className={`workspace-wrapper ${hasSearched ? "search-active" : "search-landing"}`}>
-      {/* usul.ai Landing Page Hero */}
-      {!hasSearched && (
-        <div className="landing-hero">
-          <h1 className="landing-logo">fiqh.ai</h1>
-          <p className="landing-tagline">منصة البحث المعرفي الموثق في نصوص الفقه الحنفي المعتمدة</p>
+    <div className={`workspace-wrapper ${hasSearched ? "search-active" : "search-landing"} ${activeTab === "about" ? "about-active" : ""}`}>
+      {/* Top Navigation Header */}
+      <header className="workbench-top-nav">
+        <div className="top-nav-brand" onClick={() => {
+          setActiveTab("search");
+          setHasSearched(false);
+          setQuery("");
+          setResults([]);
+          updateUrlParams({ q: "" });
+        }}>
+          fiqh.ai
         </div>
-      )}
+        <nav className="top-nav-links">
+          <button 
+            className={`nav-link-btn ${activeTab === "search" ? "active" : ""}`}
+            onClick={() => setActiveTab("search")}
+            type="button"
+          >
+            🔍 منصة البحث الفقهي
+          </button>
+          <button 
+            className={`nav-link-btn ${activeTab === "about" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("about");
+              setActiveContextChunkId(null);
+            }}
+            type="button"
+          >
+            📖 منهجية العمل وعن المنصة
+          </button>
+        </nav>
+        <div className="top-nav-badge font-outfit">
+          v1.0-AI
+        </div>
+      </header>
+
+      {activeTab === "search" && (
+        <>
+          {/* usul.ai Landing Page Hero */}
+          {!hasSearched && (
+            <div className="landing-hero">
+              <h1 className="landing-logo">fiqh.ai</h1>
+              <p className="landing-tagline">منصة البحث المعرفي الموثق في نصوص الفقه الحنفي المعتمدة</p>
+            </div>
+          )}
 
       <section className="search-panel" aria-label="لوحة التحكم في البحث">
         {hasSearched && (
@@ -624,14 +726,25 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                     >
                       🔍 قراءة السياق
                     </button>
-                    <button
-                      className="action-btn"
-                      onClick={() => copyCitation(result)}
-                      type="button"
-                      title="نسخ تخريج النص والاقتباس"
-                    >
-                      📋 نسخ التخريج
-                    </button>
+                    
+                    <div className="citation-dropdown-wrapper" style={{ position: 'relative' }}>
+                      <button
+                        className="action-btn"
+                        onClick={() => setActiveCitationDropdown(activeCitationDropdown === result.id ? null : result.id)}
+                        type="button"
+                        title="نسخ تخريج النص والاقتباس بصيغ متعددة"
+                      >
+                        📋 نسخ التخريج ▾
+                      </button>
+                      {activeCitationDropdown === result.id && (
+                        <div className="citation-dropdown-menu">
+                          <button onClick={() => copyChicago(result)} type="button">✍️ توثيق شيكاغو (Chicago)</button>
+                          <button onClick={() => copyMarkdown(result)} type="button">📝 صيغة ماركداون (Markdown)</button>
+                          <button onClick={() => copyPlain(result)} type="button">📄 نص بسيط (Plain Text)</button>
+                        </div>
+                      )}
+                    </div>
+
                     <button
                       className={`action-btn ${isBookmarked ? "active" : ""}`}
                       onClick={() => toggleBookmark(result)}
@@ -698,14 +811,25 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                         >
                           🔍 قراءة السياق
                         </button>
-                        <button
-                          className="action-btn"
-                          onClick={() => copyCitation(items[0])}
-                          type="button"
-                          title="نسخ تخريج النص والاقتباس"
-                        >
-                          📋 نسخ التخريج
-                        </button>
+                        
+                        <div className="citation-dropdown-wrapper" style={{ position: 'relative' }}>
+                          <button
+                            className="action-btn"
+                            onClick={() => setActiveCitationDropdown(activeCitationDropdown === items[0].id ? null : items[0].id)}
+                            type="button"
+                            title="نسخ تخريج النص والاقتباس بصيغ متعددة"
+                          >
+                            📋 نسخ التخريج ▾
+                          </button>
+                          {activeCitationDropdown === items[0].id && (
+                            <div className="citation-dropdown-menu">
+                              <button onClick={() => copyChicago(items[0])} type="button">✍️ توثيق شيكاغو (Chicago)</button>
+                              <button onClick={() => copyMarkdown(items[0])} type="button">📝 صيغة ماركداون (Markdown)</button>
+                              <button onClick={() => copyPlain(items[0])} type="button">📄 نص بسيط (Plain Text)</button>
+                            </div>
+                          )}
+                        </div>
+
                         <button
                           className={`action-btn ${bookmarks.some((b) => b.id === items[0].id) ? "active" : ""}`}
                           onClick={() => toggleBookmark(items[0])}
@@ -749,9 +873,25 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                                     >
                                       🔍 قراءة السياق
                                     </button>
-                                    <button className="action-btn" onClick={() => copyCitation(subItem)} type="button">
-                                      📋 نسخ التخريج
-                                    </button>
+                                    
+                                    <div className="citation-dropdown-wrapper" style={{ position: 'relative' }}>
+                                      <button
+                                        className="action-btn"
+                                        onClick={() => setActiveCitationDropdown(activeCitationDropdown === subItem.id ? null : subItem.id)}
+                                        type="button"
+                                        title="نسخ تخريج النص والاقتباس بصيغ متعددة"
+                                      >
+                                        📋 نسخ التخريج ▾
+                                      </button>
+                                      {activeCitationDropdown === subItem.id && (
+                                        <div className="citation-dropdown-menu">
+                                          <button onClick={() => copyChicago(subItem)} type="button">✍️ توثيق شيكاغو (Chicago)</button>
+                                          <button onClick={() => copyMarkdown(subItem)} type="button">📝 صيغة ماركداون (Markdown)</button>
+                                          <button onClick={() => copyPlain(subItem)} type="button">📄 نص بسيط (Plain Text)</button>
+                                        </div>
+                                      )}
+                                    </div>
+
                                     <button
                                       className={`action-btn ${isSubBookmarked ? "active" : ""}`}
                                       onClick={() => toggleBookmark(subItem)}
@@ -942,6 +1082,53 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
               </button>
             </div>
 
+            {/* Font Adjuster and Reader Controls bar */}
+            <div className="reader-controls-bar">
+              <div className="font-size-controls">
+                <button 
+                  className="control-btn" 
+                  onClick={() => setFontSize(prev => Math.max(14, prev - 1))}
+                  title="تصغير الخط"
+                  type="button"
+                >
+                  أ-
+                </button>
+                <span className="font-size-indicator font-outfit">{fontSize}px</span>
+                <button 
+                  className="control-btn" 
+                  onClick={() => setFontSize(prev => Math.min(28, prev + 1))}
+                  title="تكبير الخط"
+                  type="button"
+                >
+                  أ+
+                </button>
+              </div>
+
+              <div className="font-family-controls">
+                <button 
+                  className={`family-btn ${fontFamily === "amiri" ? "active" : ""}`}
+                  onClick={() => setFontFamily("amiri")}
+                  type="button"
+                >
+                  خط أميري
+                </button>
+                <button 
+                  className={`family-btn ${fontFamily === "noto" ? "active" : ""}`}
+                  onClick={() => setFontFamily("noto")}
+                  type="button"
+                >
+                  خط نسخ
+                </button>
+                <button 
+                  className={`family-btn ${fontFamily === "cairo" ? "active" : ""}`}
+                  onClick={() => setFontFamily("cairo")}
+                  type="button"
+                >
+                  خط عادي
+                </button>
+              </div>
+            </div>
+
             <div className="drawer-body side-list-scrollbar">
               {isContextLoading ? (
                 <div style={{ textAlign: 'center', padding: '48px', color: 'var(--muted)' }}>
@@ -962,14 +1149,25 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
                       >
                         {chunk.citation} {chunk.part_name ? `(ج ${chunk.part_name})` : ""} {chunk.page_number ? `(ص ${chunk.page_number})` : ""}
                       </span>
-                      {chunk.id === activeContextChunkId ? (
-                        <span className="context-page-indicator">موضع البحث</span>
-                      ) : (
-                        <span style={{ fontSize: '11px', color: 'var(--muted)' }}>صفحة مجاورة</span>
-                      )}
+                      <div className="page-header-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <button
+                          className={`audio-read-btn ${currentlyPlayingChunkId === chunk.id ? "playing" : ""}`}
+                          onClick={() => handlePlayTTS(chunk.id, chunk.text)}
+                          type="button"
+                          title={currentlyPlayingChunkId === chunk.id ? "إيقاف القراءة الصوتية" : "استماع للنص الفقهي (قراءة آلية)"}
+                        >
+                          {currentlyPlayingChunkId === chunk.id ? "⏸ إيقاف" : "🔊 استمع"}
+                        </button>
+                        {chunk.id === activeContextChunkId ? (
+                          <span className="context-page-indicator">موضع البحث</span>
+                        ) : (
+                          <span style={{ fontSize: '11px', color: 'var(--muted)' }}>صفحة مجاورة</span>
+                        )}
+                      </div>
                     </div>
                     <p
-                      className="passage"
+                      className={`passage read-font-${fontFamily}`}
+                      style={{ fontSize: `${fontSize}px` }}
                       dangerouslySetInnerHTML={{ __html: chunk.text_highlighted || chunk.text }}
                     />
                   </div>
@@ -989,6 +1187,108 @@ export function SearchExperience({ apiBaseUrl, books }: SearchExperienceProps) {
             </div>
           </div>
         </section>
+      )}
+        </>
+      )}
+
+      {/* About/Methodology Section */}
+      {activeTab === "about" && (
+        <div className="about-section-container">
+          <div className="about-card parchment-paper">
+            <h2 className="about-title">📖 عن منصة fiqh.ai ومنهجية عملها</h2>
+            <p className="about-lead">
+              منصة رقمية رائدة متخصصة في البحث والتحقيق المعرفي داخل أمهات كتب الفقه الحنفي المعتمدة، تم دمجها بالذكاء الاصطناعي لتقديم أدوات تخدم الفقهاء والباحثين وطلبة العلم الشرعي.
+            </p>
+
+            <div className="about-features-grid">
+              <div className="about-feature-item">
+                <div className="feature-icon">🔍</div>
+                <h3>1. البحث الدلالي المعرفي (AI Search)</h3>
+                <p>
+                  لا يعتمد المحرك على مطابقة الحروف فحسب، بل يحلل المعنى الفقهي والروابط الدلالية عبر نماذج الذكاء الاصطناعي (Embeddings) لربط المترادفات والمسائل المترابطة (مثال: البحث عن «ماء البئر» يقود لنتائج تحتوي «ماء الركيّ»).
+                </p>
+              </div>
+
+              <div className="about-feature-item">
+                <div className="feature-icon">⚡</div>
+                <h3>2. المطابقة اللفظية الدقيقة (BM25 Lexical)</h3>
+                <p>
+                  يتم دمج البحث الدلالي مع محرك البحث اللفظي التقليدي الفائق السرعة عبر تقنية Reciprocal Rank Fusion (RRF) لضمان المحافظة على التخريج الحرفي للعبارات والنصوص الموثقة دون تحريف أو تغيير.
+                </p>
+              </div>
+
+              <div className="about-feature-item">
+                <div className="feature-icon">🛡️</div>
+                <h3>3. السلامة الفقهية المطلقة (Citation Safety)</h3>
+                <p>
+                  تتجنب المنصة تمامًا أخطاء الهلوسة والتحريف الشائعة في نماذج التوليد اللغوي (LLMs)؛ حيث تقوم المنصة باسترداد النص الشرعي الأصلي والصفحة الدقيقة والباب والموضع من الكتاب المطبوع المحقق مباشرة دون أي تدخل توليدي.
+                </p>
+              </div>
+
+              <div className="about-feature-item">
+                <div className="feature-icon">📚</div>
+                <h3>4. واجهة المحقق والباحث المتكاملة</h3>
+                <p>
+                  توفر المنصة تقسيم شاشة تفاعلي (Split-Screen Workbench) تمكنك من مقارنة النتائج وقراءة السياق الشرعي للصفحات السابقة والتالية فوراً، وتغيير الخط وتكبيره وتوثيق المسائل بصيغ أكاديمية متعددة كشيكاغو وماركداون بضغطة زر.
+                </p>
+              </div>
+            </div>
+
+            <div className="books-showcase">
+              <h3 className="section-subtitle">📚 المكتبة الفقهية المفهرسة (الكتب الـ 7 المفهرسة)</h3>
+              <p className="section-desc">
+                تحتوي المنصة على أكثر من 115,500 مقطع نصي مقسمة ومفهرسة بدقة من أمهات الفقه الحنفي المعتمد:
+              </p>
+              <div className="books-showcase-grid">
+                {books.map((book) => (
+                  <div key={book.id} className="book-showcase-card" onClick={() => setActiveBookId(book.id)}>
+                    <h4>{book.title}</h4>
+                    <p className="book-showcase-author">تأليف: {book.authors.join("، ") || "غير محدد"}</p>
+                    <div className="book-showcase-stats">
+                      <span>📖 {book.chunk_count} مقطع فقهي</span>
+                      <span>📅 {book.year || "طبعة قديمة"}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Developer Profile Card */}
+            <div className="about-developer-card">
+              <div className="dev-card-header">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="https://www.myrentalfind.com/dev/mohammad-usman.png" 
+                  alt="Mohammad Usman" 
+                  className="dev-card-avatar"
+                />
+                <div className="dev-card-title-group">
+                  <h3>محمد عثمان</h3>
+                  <p>مطور تطبيقات ومصمم واجهات البرمجيات</p>
+                  <div className="dev-card-location">📍 جامو وكشمير</div>
+                </div>
+              </div>
+              <p className="dev-card-bio">
+                مطور برمجيات شغوف ومبدع يقوم ببناء منصات ويب متكاملة وتطبيقات ذكية وتصاميم واجهات تدمج بين التراث الشرعي والتقنيات الحديثة، مثل تطبيقات القرآن الكريم والفهرسة الذكية والواجهات التفاعلية.
+              </p>
+              <div className="dev-card-tags">
+                <span>Flutter</span>
+                <span>Next.js</span>
+                <span>Firebase</span>
+                <span>Supabase</span>
+                <span>UI/UX Design</span>
+              </div>
+              <a 
+                href="https://portfolio-mohammad.web.app/yameen" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="dev-portfolio-btn"
+              >
+                💼 عرض معرض أعمال المطور (Portfolio)
+              </a>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Book Details Modal */}

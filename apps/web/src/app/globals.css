@@ -2008,3 +2008,509 @@ button:focus-visible {
   color: var(--gold);
   transform: translate(-2px, -2px);
 }
+
+/* ─── Top Navigation Header ─── */
+.workbench-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  z-index: 1000;
+}
+
+.top-nav-brand {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  cursor: pointer;
+  letter-spacing: -0.5px;
+  transition: color 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.top-nav-brand:hover {
+  color: var(--gold);
+}
+
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-link-btn {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  transition: all 0.25s var(--ease-out);
+}
+
+.nav-link-btn:hover {
+  color: var(--text);
+  background: var(--surface-strong);
+}
+
+.nav-link-btn.active {
+  color: var(--accent);
+  background: var(--accent-subtle);
+}
+
+[data-theme="night"] .nav-link-btn.active {
+  color: var(--gold);
+  background: var(--gold-bg);
+}
+
+.top-nav-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  background: var(--gold-bg);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* ─── Reader Controls Bar (Context Drawer) ─── */
+.reader-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background: var(--surface-strong);
+  border-bottom: 1px solid var(--border-subtle);
+  direction: rtl;
+}
+
+.font-size-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.font-size-indicator {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  min-width: 36px;
+  text-align: center;
+}
+
+.font-family-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.family-btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Cairo', sans-serif;
+}
+
+.family-btn:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.family-btn.active {
+  background: var(--accent);
+  color: #fff !important;
+  border-color: var(--accent);
+}
+
+[data-theme="night"] .family-btn.active {
+  background: var(--gold);
+  color: #0f1510 !important;
+  border-color: var(--gold);
+}
+
+/* ─── Reader Font Overrides ─── */
+.read-font-amiri {
+  font-family: "Amiri", serif !important;
+}
+
+.read-font-noto {
+  font-family: "Noto Naskh Arabic", serif !important;
+  line-height: 1.95 !important;
+}
+
+.read-font-cairo {
+  font-family: "Cairo", sans-serif !important;
+  line-height: 1.75 !important;
+  font-size: 0.9em !important;
+}
+
+/* ─── Text to Speech Audio Button ─── */
+.audio-read-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  font-family: 'Cairo', sans-serif;
+}
+
+.audio-read-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.audio-read-btn.playing {
+  background: var(--gold-bg);
+  border-color: var(--gold);
+  color: var(--gold);
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+/* ─── Citation Dropdown Menu ─── */
+.citation-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  min-width: 175px;
+  overflow: hidden;
+  direction: rtl;
+  animation: dropdownFadeIn 0.2s var(--ease-out);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.citation-dropdown-menu button {
+  background: none;
+  border: 0;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 12px;
+  text-align: right;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s ease, color 0.15s ease;
+  font-family: 'Cairo', sans-serif;
+}
+
+.citation-dropdown-menu button:hover {
+  background: var(--surface-strong);
+  color: var(--accent);
+}
+
+[data-theme="night"] .citation-dropdown-menu button:hover {
+  color: var(--gold);
+}
+
+/* ─── About Section Container ─── */
+.about-section-container {
+  max-width: 900px;
+  margin: 32px auto 0;
+  padding: 0 16px 64px;
+  direction: rtl;
+  font-family: 'Cairo', sans-serif;
+  animation: fadeInUp 0.5s var(--ease-out);
+}
+
+.about-card {
+  padding: 40px 48px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-lg);
+}
+
+.parchment-paper {
+  background-color: var(--surface);
+  position: relative;
+}
+
+.about-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+[data-theme="night"] .about-title {
+  color: var(--gold);
+}
+
+.about-lead {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.about-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .about-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-card {
+    padding: 24px 20px;
+  }
+}
+
+.about-feature-item {
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: var(--surface-strong);
+  border: 1px solid var(--border-subtle);
+}
+
+.feature-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.about-feature-item h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.about-feature-item p {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.section-subtitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.books-showcase {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 32px;
+  margin-bottom: 40px;
+}
+
+.books-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .books-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.book-showcase-card {
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.book-showcase-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+
+.book-showcase-card h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.book-showcase-author {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.book-showcase-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: var(--muted);
+}
+
+/* ─── About Developer Profile Card ─── */
+.about-developer-card {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 36px;
+  margin-top: 40px;
+}
+
+.dev-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.dev-card-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.dev-card-title-group h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.dev-card-title-group p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.dev-card-location {
+  font-size: 9px;
+  color: var(--text-secondary);
+}
+
+.dev-card-bio {
+  font-size: 12px;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.dev-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.dev-card-tags span {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--surface-strong);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.dev-portfolio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.dev-portfolio-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="night"] .dev-portfolio-btn {
+  background: var(--gold);
+  color: #0f1510 !important;
+}
+
+[data-theme="night"] .dev-portfolio-btn:hover {
+  background: hsl(42, 65%, 68%);
+}
