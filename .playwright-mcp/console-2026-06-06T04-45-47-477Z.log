@@ -1,0 +1,7 @@
+[     111ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     153ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     199ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3002/favicon.ico:0
+[  336101ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  336125ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  345757ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  345787ms] [LOG] [Fast Refresh] done in 47ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287

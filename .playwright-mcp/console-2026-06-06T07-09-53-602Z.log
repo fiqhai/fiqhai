@@ -1,0 +1,15 @@
+[     406ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     475ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     605ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:3002/favicon.ico:0
+[  539518ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  539540ms] [LOG] [Fast Refresh] done in 91ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  664946ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  664981ms] [LOG] [Fast Refresh] done in 9ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  690756ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  690787ms] [LOG] [Fast Refresh] done in 11ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  930646ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  930676ms] [LOG] [Fast Refresh] done in 8ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[ 1200440ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[ 1200460ms] [LOG] [Fast Refresh] done in 62ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[ 1319113ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[ 1319143ms] [LOG] [Fast Refresh] done in 10ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287

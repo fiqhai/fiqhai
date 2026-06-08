@@ -1,0 +1,171 @@
+[     598ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     714ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   59283ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   59592ms] ReferenceError: isThemeMenuOpen is not defined
+    at SearchExperience (http://127.0.0.1:3002/_next/static/chunks/apps_web_src_components_SearchExperience_tsx_f57f120e._.js?id=%255Bproject%255D%252Fapps%252Fweb%252Fsrc%252Fcomponents%252FSearchExperience.tsx+%255Bapp-client%255D+%2528ecmascript%2529:1625:58)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14816:24)
+    at renderWithHooks (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4645:24)
+    at updateFunctionComponent (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6106:21)
+    at beginWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6702:24)
+    at runWithFiberInDEV (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:959:74)
+    at performUnitOfWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9556:97)
+    at workLoopSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9450:40)
+    at renderRootSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9434:13)
+    at performWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9099:47)
+    at performSyncWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10232:9)
+    at flushSyncWorkAcrossRoots_impl (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10148:316)
+    at flushSyncWork$1 (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9231:86)
+    at Object.scheduleRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:294:13)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[   59539ms] [LOG] [Fast Refresh] done in 287ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   62052ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   62604ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   62737ms] ReferenceError: isThemeMenuOpen is not defined
+    at SearchExperience (http://127.0.0.1:3002/_next/static/chunks/apps_web_src_components_SearchExperience_tsx_f57f120e._.js?id=%255Bproject%255D%252Fapps%252Fweb%252Fsrc%252Fcomponents%252FSearchExperience.tsx+%255Bapp-client%255D+%2528ecmascript%2529:1656:58)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14816:24)
+    at renderWithHooks (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4645:24)
+    at updateFunctionComponent (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6106:21)
+    at beginWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6681:639)
+    at runWithFiberInDEV (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:959:74)
+    at performUnitOfWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9556:97)
+    at workLoopSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9450:40)
+    at renderRootSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9434:13)
+    at performWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9099:47)
+    at performSyncWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10232:9)
+    at flushSyncWorkAcrossRoots_impl (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10148:316)
+    at flushSyncWork$1 (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9231:86)
+    at Object.scheduleRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:294:13)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[   62643ms] [LOG] [Fast Refresh] done in 646ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   62755ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   62955ms] [LOG] [Fast Refresh] done in 301ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   63309ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   63476ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   63844ms] [LOG] [Fast Refresh] done in 470ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   63948ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   64500ms] [LOG] [Fast Refresh] done in 653ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   64674ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   65802ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   65869ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   66313ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   66685ms] [LOG] [Fast Refresh] done in 473ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   67567ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   67715ms] [LOG] [Fast Refresh] done in 243ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   69151ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   69571ms] [LOG] [Fast Refresh] done in 494ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   69768ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   70099ms] [LOG] [Fast Refresh] done in 321ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   73862ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   73902ms] [LOG] [Fast Refresh] done in 65ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   97882ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   97927ms] [LOG] [Fast Refresh] done in 18ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  125210ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  125283ms] [LOG] [Fast Refresh] done in 147ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  125656ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  125732ms] [LOG] [Fast Refresh] done in 147ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  126479ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  126565ms] [LOG] [Fast Refresh] done in 167ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  127438ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  127459ms] [LOG] [Fast Refresh] done in 100ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  128163ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  128186ms] [LOG] [Fast Refresh] done in 114ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  128542ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  128635ms] ReferenceError: themeDotsSelector is not defined
+    at SearchExperience (http://127.0.0.1:3002/_next/static/chunks/apps_web_src_components_SearchExperience_tsx_f57f120e._.js?id=%255Bproject%255D%252Fapps%252Fweb%252Fsrc%252Fcomponents%252FSearchExperience.tsx+%255Bapp-client%255D+%2528ecmascript%2529:1781:53)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14816:24)
+    at renderWithHooks (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4645:24)
+    at updateFunctionComponent (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6106:21)
+    at beginWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6702:24)
+    at runWithFiberInDEV (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:959:74)
+    at performUnitOfWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9556:97)
+    at workLoopSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9450:40)
+    at renderRootSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9434:13)
+    at performWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9099:47)
+    at performSyncWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10232:9)
+    at flushSyncWorkAcrossRoots_impl (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10148:316)
+    at flushSyncWork$1 (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9231:86)
+    at Object.scheduleRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:294:13)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[  128616ms] [LOG] [Fast Refresh] done in 141ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  129514ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  129560ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  129596ms] ReferenceError: themeDotsSelector is not defined
+    at SearchExperience (http://127.0.0.1:3002/_next/static/chunks/apps_web_src_components_SearchExperience_tsx_f57f120e._.js?id=%255Bproject%255D%252Fapps%252Fweb%252Fsrc%252Fcomponents%252FSearchExperience.tsx+%255Bapp-client%255D+%2528ecmascript%2529:1863:53)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14816:24)
+    at renderWithHooks (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4645:24)
+    at updateFunctionComponent (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6106:21)
+    at beginWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6681:639)
+    at runWithFiberInDEV (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:959:74)
+    at performUnitOfWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9556:97)
+    at workLoopSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9450:40)
+    at renderRootSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9434:13)
+    at performWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9099:47)
+    at performSyncWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10232:9)
+    at flushSyncWorkAcrossRoots_impl (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10148:316)
+    at flushSyncWork$1 (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9231:86)
+    at Object.scheduleRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:294:13)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[  129584ms] [LOG] [Fast Refresh] done in 142ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  129690ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  129752ms] [LOG] [Fast Refresh] done in 163ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  129920ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3002/?lang=ar:0
+[  130656ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  130687ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  130831ms] ReferenceError: themeDotsSelector is not defined
+    at SearchExperience (http://127.0.0.1:3002/_next/static/chunks/apps_web_src_components_SearchExperience_tsx_f57f120e._.js:4672:29)
+    at Object.react_stack_bottom_frame (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14816:24)
+    at renderWithHooks (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4645:24)
+    at updateFunctionComponent (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6106:21)
+    at beginWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6681:639)
+    at runWithFiberInDEV (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:959:74)
+    at performUnitOfWork (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9556:97)
+    at workLoopSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9450:40)
+    at renderRootSync (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9434:13)
+    at performWorkOnRoot (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9099:47)
+    at performWorkOnRootViaSchedulerTask (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10224:9)
+    at MessagePort.performWorkUntilDeadline (http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[  131475ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  131507ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  131516ms] [LOG] [Fast Refresh] done in 128ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  131819ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  131845ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  134095ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  134096ms] [LOG] [Fast Refresh] done in 103ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  134619ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  134653ms] [LOG] [Fast Refresh] done in 14ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  137068ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  137101ms] [LOG] [Fast Refresh] done in 14ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  137858ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  137889ms] [LOG] [Fast Refresh] done in 11ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  138520ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  138552ms] [LOG] [Fast Refresh] done in 12ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  140213ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  140243ms] [LOG] [Fast Refresh] done in 10ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  157332ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  158334ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  159336ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  160338ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  161341ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  166343ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  171347ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  176354ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  181357ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  186360ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  191362ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
+[  196364ms] [ERROR] WebSocket connection to 'ws://127.0.0.1:3002/_next/webpack-hmr?id=D_o5uhqpFvP7wWtfXz1eU' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_client_aaee43fe._.js:10116
