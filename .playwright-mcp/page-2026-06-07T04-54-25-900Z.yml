@@ -1,0 +1,86 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - img [ref=e7]
+          - generic [ref=e15]: fiqh.ai
+        - navigation [ref=e16]:
+          - button "البحث" [ref=e17] [cursor=pointer]:
+            - img [ref=e18]
+            - text: البحث
+          - button "المنهجية" [ref=e21] [cursor=pointer]:
+            - img [ref=e22]
+            - text: المنهجية
+        - button "Switch to English" [ref=e25] [cursor=pointer]: EN
+      - main [ref=e26]:
+        - generic [ref=e27]:
+          - heading "fiqh.ai" [level=1] [ref=e28]
+          - paragraph [ref=e29]: البحث الفقهي في المصادر الموثقة
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - img [ref=e34]
+            - textbox "اسأل أو ابحث في النصوص..." [ref=e37]: سؤر الهرة
+            - button [ref=e38] [cursor=pointer]:
+              - img [ref=e39]
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - button "الكل" [ref=e44] [cursor=pointer]:
+                - img [ref=e45]
+                - generic [ref=e48]: الكل
+                - img [ref=e49]
+              - button "المصادر" [ref=e51] [cursor=pointer]:
+                - img [ref=e52]
+                - generic [ref=e55]: المصادر
+            - button "بحث" [ref=e57] [cursor=pointer]
+      - complementary [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]: المصادر
+          - button [ref=e61] [cursor=pointer]:
+            - img [ref=e62]
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e67]: 💡 تنبيه
+            - paragraph [ref=e68]: أداة بحث ومراجعة للمصادر، وليست إصداراً للفتوى.
+          - generic [ref=e69]:
+            - generic [ref=e71]: 📚 تصفية حسب الكتب
+            - textbox "ابحث عن كتاب..." [ref=e72]
+            - list [ref=e73]:
+              - generic [ref=e74]: لا يوجد كتاب مطابق.
+          - generic [ref=e75]:
+            - generic [ref=e76]: ★ المحفوظات
+            - paragraph [ref=e77]: لا توجد محفوظات.
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - generic [ref=e80]: ⏰ السجل
+              - button "مسح" [ref=e81] [cursor=pointer]
+            - list [ref=e82]:
+              - listitem [ref=e83]:
+                - button "🔍 سؤر الهرة" [ref=e84] [cursor=pointer]:
+                  - generic [ref=e85]: 🔍 سؤر الهرة
+      - button "تغيير المظهر" [ref=e87] [cursor=pointer]
+      - generic:
+        - generic:
+          - img
+        - generic:
+          - generic: تم النسخ بنجاح
+          - generic: تم نسخ التخريج إلى الحافظة
+        - button:
+          - img
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - img [ref=e92]
+          - generic [ref=e100]: fiqh.ai
+        - generic [ref=e101]:
+          - button "البحث" [ref=e102] [cursor=pointer]:
+            - img [ref=e103]
+            - generic [ref=e106]: البحث
+          - button "المنهجية" [ref=e107] [cursor=pointer]:
+            - img [ref=e108]
+            - generic [ref=e111]: المنهجية
+          - button "المصادر" [ref=e112] [cursor=pointer]:
+            - img [ref=e113]
+            - generic [ref=e115]: المصادر
+  - button "Open Next.js Dev Tools" [ref=e121] [cursor=pointer]:
+    - img [ref=e122]
+  - alert [ref=e125]

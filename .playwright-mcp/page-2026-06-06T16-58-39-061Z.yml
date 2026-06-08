@@ -1,0 +1,104 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e6]:
+        - text: fiqh
+        - generic [ref=e7]: .ai
+      - main [ref=e8]:
+        - generic [ref=e9]:
+          - generic [ref=e10]:
+            - generic [ref=e11]:
+              - img [ref=e13]
+              - textbox "اسأل أو ابحث في النصوص..." [ref=e16]: سؤر الهرة
+              - button [ref=e17] [cursor=pointer]:
+                - img [ref=e18]
+            - button "بحث" [ref=e21] [cursor=pointer]
+          - generic [ref=e22]:
+            - button "إخفاء الضبط" [ref=e23] [cursor=pointer]
+            - button "EN" [ref=e24] [cursor=pointer]
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]: "المطابقة:"
+              - generic [ref=e28]:
+                - button "الكل" [ref=e29] [cursor=pointer]
+                - button "أي كلمة" [ref=e30] [cursor=pointer]
+                - button "عبارة" [ref=e31] [cursor=pointer]
+            - generic [ref=e32]:
+              - generic [ref=e33]: "العرض:"
+              - generic [ref=e34]:
+                - checkbox "تجميع" [ref=e35] [cursor=pointer]
+                - generic [ref=e36]: تجميع
+            - generic [ref=e37]:
+              - generic [ref=e38]: "تغيير المظهر:"
+              - generic [ref=e39]:
+                - button "هادئ" [ref=e40] [cursor=pointer]:
+                  - generic [ref=e42]: هادئ
+                - button "ليلي" [ref=e43] [cursor=pointer]:
+                  - generic [ref=e45]: ليلي
+                - button "أخضر" [ref=e46] [cursor=pointer]:
+                  - generic [ref=e48]: أخضر
+            - button "المصادر" [ref=e50] [cursor=pointer]:
+              - img [ref=e51]
+              - generic [ref=e54]: المصادر
+            - generic [ref=e55]:
+              - generic [ref=e56]: "أمثلة:"
+              - generic [ref=e57]:
+                - button "سؤر الهرة" [ref=e58] [cursor=pointer]:
+                  - img [ref=e59]
+                  - generic [ref=e62]: سؤر الهرة
+                - button "الماء المستعمل" [ref=e63] [cursor=pointer]:
+                  - img [ref=e64]
+                  - generic [ref=e67]: الماء المستعمل
+                - button "صلاة المسافر" [ref=e68] [cursor=pointer]:
+                  - img [ref=e69]
+                  - generic [ref=e72]: صلاة المسافر
+        - generic [ref=e74]: تعذر الاتصال بواجهة البحث.
+      - complementary [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: المصادر
+          - button [ref=e78] [cursor=pointer]:
+            - img [ref=e79]
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - generic [ref=e84]: 💡 تنبيه
+            - paragraph [ref=e85]: أداة بحث ومراجعة للمصادر، وليست إصداراً للفتوى.
+          - generic [ref=e86]:
+            - generic [ref=e88]: 📚 تصفية حسب الكتب
+            - textbox "ابحث عن كتاب..." [ref=e89]
+            - list [ref=e90]:
+              - generic [ref=e91]: لا يوجد كتاب مطابق.
+          - generic [ref=e92]:
+            - generic [ref=e93]: ★ المحفوظات
+            - paragraph [ref=e94]: لا توجد محفوظات.
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - generic [ref=e97]: ⏰ السجل
+              - button "مسح" [ref=e98] [cursor=pointer]
+            - list [ref=e99]:
+              - listitem [ref=e100]:
+                - button "🔍 سؤر الهرة" [ref=e101] [cursor=pointer]:
+                  - generic [ref=e102]: 🔍 سؤر الهرة
+      - generic:
+        - generic:
+          - img
+        - generic:
+          - generic: تم النسخ بنجاح
+          - generic: تم نسخ التخريج إلى الحافظة
+        - button:
+          - img
+      - navigation [ref=e103]:
+        - button "بحث" [ref=e104] [cursor=pointer]:
+          - img [ref=e105]
+          - generic [ref=e108]: بحث
+        - button "المصادر" [ref=e109] [cursor=pointer]:
+          - img [ref=e110]
+          - generic [ref=e113]: المصادر
+        - button "منهجية العمل" [ref=e114] [cursor=pointer]:
+          - img [ref=e115]
+          - generic [ref=e118]: منهجية العمل
+      - generic [ref=e119]:
+        - generic [ref=e120]: fiqh.ai · منصة البحث المرجعي الفقهي
+        - generic [ref=e121]: "UI and design: أحمد بن عمار المعتصم"
+  - button "Open Next.js Dev Tools" [ref=e127] [cursor=pointer]:
+    - img [ref=e128]
+  - alert [ref=e131]

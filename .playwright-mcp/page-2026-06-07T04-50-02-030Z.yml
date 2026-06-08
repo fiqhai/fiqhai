@@ -1,0 +1,84 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - img [ref=e7]
+          - generic [ref=e15]: fiqh.ai
+        - button "Switch to English" [ref=e16] [cursor=pointer]: EN
+      - main [ref=e17]:
+        - generic [ref=e18]:
+          - heading "fiqh.ai" [level=1] [ref=e19]
+          - paragraph [ref=e20]: البحث الفقهي في المصادر الموثقة
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - img [ref=e25]
+            - textbox "اسأل أو ابحث في النصوص..." [ref=e28]: سؤر الهرة
+            - button [ref=e29] [cursor=pointer]:
+              - img [ref=e30]
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - button "الكل" [ref=e35] [cursor=pointer]:
+                - img [ref=e36]
+                - generic [ref=e39]: الكل
+                - img [ref=e40]
+              - button "المصادر" [ref=e42] [cursor=pointer]:
+                - img [ref=e43]
+                - generic [ref=e46]: المصادر
+            - button "بحث" [ref=e48] [cursor=pointer]
+      - complementary [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]: المصادر
+          - button [ref=e52] [cursor=pointer]:
+            - img [ref=e53]
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]: 💡 تنبيه
+            - paragraph [ref=e59]: أداة بحث ومراجعة للمصادر، وليست إصداراً للفتوى.
+          - generic [ref=e60]:
+            - generic [ref=e62]: 📚 تصفية حسب الكتب
+            - textbox "ابحث عن كتاب..." [ref=e63]
+            - list [ref=e64]:
+              - generic [ref=e65]: لا يوجد كتاب مطابق.
+          - generic [ref=e66]:
+            - generic [ref=e67]: ★ المحفوظات
+            - paragraph [ref=e68]: لا توجد محفوظات.
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - generic [ref=e71]: ⏰ السجل
+              - button "مسح" [ref=e72] [cursor=pointer]
+            - list [ref=e73]:
+              - listitem [ref=e74]:
+                - button "🔍 سؤر الهرة" [ref=e75] [cursor=pointer]:
+                  - generic [ref=e76]: 🔍 سؤر الهرة
+      - button "تغيير المظهر" [ref=e78] [cursor=pointer]
+      - generic:
+        - generic:
+          - img
+        - generic:
+          - generic: تم النسخ بنجاح
+          - generic: تم نسخ التخريج إلى الحافظة
+        - button:
+          - img
+      - navigation [ref=e80]:
+        - button "بحث" [ref=e81] [cursor=pointer]:
+          - img [ref=e82]
+          - generic [ref=e85]: بحث
+        - button "المصادر" [ref=e86] [cursor=pointer]:
+          - img [ref=e87]
+          - generic [ref=e90]: المصادر
+        - button "منهجية العمل" [ref=e91] [cursor=pointer]:
+          - img [ref=e92]
+          - generic [ref=e95]: منهجية العمل
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - img [ref=e99]
+          - generic [ref=e107]: fiqh.ai
+        - generic [ref=e108]:
+          - button [ref=e109] [cursor=pointer]:
+            - img [ref=e110]
+          - button [ref=e113] [cursor=pointer]:
+            - img [ref=e114]
+          - button [ref=e117] [cursor=pointer]:
+            - img [ref=e118]
+  - alert [ref=e120]

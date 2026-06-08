@@ -172,4 +172,4 @@ Open `http://localhost:3000` to interact with your local scholarly workspace!
 
 ## 🏆 Credits
 Created and engineered with dedication to the preservation and accessibility of Islamic jurisprudence by **Mohammad Usman**. 
-* **Portfolio**: [Mohammad Usman Portfolio](https://portfolio-mohammad.web.app/yameen)
+* **Portfolio**: [Mohammad Usman Portfolio](https://portfolio-mohammad.web.app/)

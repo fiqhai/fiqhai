@@ -1,0 +1,98 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - text: fiqh
+          - generic [ref=e7]: .ai
+        - navigation [ref=e8]:
+          - button "البحث" [ref=e9] [cursor=pointer]
+          - button "المنهجية" [ref=e10] [cursor=pointer]
+      - main [ref=e11]:
+        - generic [ref=e12]:
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - img [ref=e16]
+              - textbox "اسأل أو ابحث في النصوص..." [ref=e19]: سؤر الهرة
+              - button [ref=e20] [cursor=pointer]:
+                - img [ref=e21]
+            - button "بحث" [ref=e24] [cursor=pointer]
+          - generic [ref=e25]:
+            - button "إخفاء الضبط" [ref=e26] [cursor=pointer]
+            - button "EN" [ref=e27] [cursor=pointer]
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - generic [ref=e30]: "المطابقة:"
+              - generic [ref=e31]:
+                - button "الكل" [ref=e32] [cursor=pointer]
+                - button "أي كلمة" [ref=e33] [cursor=pointer]
+                - button "عبارة" [ref=e34] [cursor=pointer]
+            - generic [ref=e35]:
+              - generic [ref=e36]: "العرض:"
+              - generic [ref=e37]:
+                - checkbox "تجميع" [ref=e38] [cursor=pointer]
+                - generic [ref=e39]: تجميع
+            - generic [ref=e40]:
+              - generic [ref=e41]: "تغيير المظهر:"
+              - generic [ref=e42]:
+                - button "هادئ" [ref=e43] [cursor=pointer]:
+                  - generic [ref=e45]: هادئ
+                - button "ليلي" [ref=e46] [cursor=pointer]:
+                  - generic [ref=e48]: ليلي
+                - button "أخضر" [ref=e49] [cursor=pointer]:
+                  - generic [ref=e51]: أخضر
+            - button "المصادر" [ref=e53] [cursor=pointer]:
+              - img [ref=e54]
+              - generic [ref=e57]: المصادر
+            - generic [ref=e58]:
+              - generic [ref=e59]: "أمثلة:"
+              - generic [ref=e60]:
+                - button "سؤر الهرة" [ref=e61] [cursor=pointer]:
+                  - img [ref=e62]
+                  - generic [ref=e65]: سؤر الهرة
+                - button "الماء المستعمل" [ref=e66] [cursor=pointer]:
+                  - img [ref=e67]
+                  - generic [ref=e70]: الماء المستعمل
+                - button "صلاة المسافر" [ref=e71] [cursor=pointer]:
+                  - img [ref=e72]
+                  - generic [ref=e75]: صلاة المسافر
+        - generic [ref=e77]: تعذر الاتصال بواجهة البحث.
+      - complementary [ref=e78]:
+        - generic [ref=e79]:
+          - generic [ref=e80]: المصادر
+          - button [ref=e81] [cursor=pointer]:
+            - img [ref=e82]
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: 💡 تنبيه
+            - paragraph [ref=e88]: أداة بحث ومراجعة للمصادر، وليست إصداراً للفتوى.
+          - generic [ref=e89]:
+            - generic [ref=e91]: 📚 تصفية حسب الكتب
+            - textbox "ابحث عن كتاب..." [ref=e92]
+            - list [ref=e93]:
+              - generic [ref=e94]: لا يوجد كتاب مطابق.
+          - generic [ref=e95]:
+            - generic [ref=e96]: ★ المحفوظات
+            - paragraph [ref=e97]: لا توجد محفوظات.
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - generic [ref=e100]: ⏰ السجل
+              - button "مسح" [ref=e101] [cursor=pointer]
+            - list [ref=e102]:
+              - listitem [ref=e103]:
+                - button "🔍 سؤر الهرة" [ref=e104] [cursor=pointer]:
+                  - generic [ref=e105]: 🔍 سؤر الهرة
+      - generic:
+        - generic:
+          - img
+        - generic:
+          - generic: تم النسخ بنجاح
+          - generic: تم نسخ التخريج إلى الحافظة
+        - button:
+          - img
+      - generic [ref=e106]:
+        - generic [ref=e107]: fiqh.ai · منصة البحث المرجعي الفقهي
+        - generic [ref=e108]: "UI and design: أحمد بن عمار المعتصم"
+  - button "Open Next.js Dev Tools" [ref=e114] [cursor=pointer]:
+    - img [ref=e115]
+  - alert [ref=e118]

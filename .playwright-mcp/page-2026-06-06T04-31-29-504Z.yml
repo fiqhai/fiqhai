@@ -1,0 +1,34 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5] [cursor=pointer]: fiqh.ai
+        - navigation [ref=e6]:
+          - button "Search" [ref=e7] [cursor=pointer]
+          - button "Method" [ref=e8] [cursor=pointer]
+      - generic [ref=e9]:
+        - heading "fiqh.ai" [level=1] [ref=e10]
+        - paragraph [ref=e11]: Focused fiqh search across verified sources
+      - region "Search panel" [ref=e12]:
+        - generic [ref=e13]:
+          - textbox "Fiqh search query" [ref=e15]:
+            - /placeholder: Ask or search the texts...
+            - text: سؤر الهرة
+          - button "Search" [ref=e16] [cursor=pointer]
+        - generic "Search options" [ref=e17]:
+          - button "Options" [ref=e18] [cursor=pointer]
+          - generic "Change theme" [ref=e19]:
+            - button "Calm" [ref=e20] [cursor=pointer]:
+              - generic [ref=e22]: Calm
+            - button "Night" [ref=e23] [cursor=pointer]:
+              - generic [ref=e25]: Night
+            - button "Green" [pressed] [ref=e26] [cursor=pointer]:
+              - generic [ref=e28]: Green
+          - button "Switch to Arabic" [ref=e29] [cursor=pointer]: AR
+        - generic "Quick examples" [ref=e30]:
+          - button "سؤر الهرة" [ref=e31] [cursor=pointer]
+          - button "الماء المستعمل" [ref=e32] [cursor=pointer]
+          - button "صلاة المسافر" [ref=e33] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e39] [cursor=pointer]:
+    - img [ref=e40]
+  - alert [ref=e43]

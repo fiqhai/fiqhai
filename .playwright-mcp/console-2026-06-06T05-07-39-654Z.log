@@ -1,0 +1,10 @@
+[     392ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     437ms] [LOG] [Fast Refresh] done in 157ms @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     867ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     926ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   13114ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   13137ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   13812ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   13846ms] [LOG] [HMR] connected @ http://127.0.0.1:3002/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   20914ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/search?q=%D8%B3%D8%A4%D8%B1%20%D8%A7%D9%84%D9%87%D8%B1%D8%A9&mode=all&limit=20:0
+[   22917ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/search?q=%D8%B3%D8%A4%D8%B1%20%D8%A7%D9%84%D9%87%D8%B1%D8%A9&mode=any&limit=20:0

@@ -1,0 +1,7 @@
+[     114ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[     127ms] [LOG] [HMR] connected @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[   25468ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/search?q=%D8%B3%D8%A4%D8%B1%20%D8%A7%D9%84%D9%87%D8%B1%D8%A9&mode=all&limit=20:0
+[  204288ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  204320ms] [LOG] [Fast Refresh] done in 15ms @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  215627ms] [LOG] [Fast Refresh] rebuilding @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287
+[  215657ms] [LOG] [Fast Refresh] done in 15ms @ http://127.0.0.1:3000/_next/static/chunks/node_modules_next_dist_7a8122d0._.js:2287

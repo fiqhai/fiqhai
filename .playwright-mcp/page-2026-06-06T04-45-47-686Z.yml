@@ -1,0 +1,36 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5] [cursor=pointer]: fiqh.ai ▰
+        - navigation [ref=e6]:
+          - button "البحث" [ref=e7] [cursor=pointer]
+          - button "المنهجية" [ref=e8] [cursor=pointer]
+        - text: □
+      - generic [ref=e9]:
+        - paragraph [ref=e10]: 0 كتب مفهرسة
+        - heading "بحث في كتب الفقه الحنفي" [level=1] [ref=e11]
+        - paragraph [ref=e12]: البحث الفقهي في المصادر الموثقة
+      - region "لوحة البحث" [ref=e13]:
+        - generic [ref=e14]:
+          - textbox "عبارة البحث الفقهي" [ref=e16]:
+            - /placeholder: اسأل أو ابحث في النصوص...
+            - text: سؤر الهرة
+          - button "بحث" [ref=e17] [cursor=pointer]
+        - generic "خيارات البحث" [ref=e18]:
+          - button "ضبط البحث" [ref=e19] [cursor=pointer]
+          - generic "تغيير المظهر" [ref=e20]:
+            - button "هادئ" [pressed] [ref=e21] [cursor=pointer]:
+              - generic [ref=e23]: هادئ
+            - button "ليلي" [ref=e24] [cursor=pointer]:
+              - generic [ref=e26]: ليلي
+            - button "أخضر" [ref=e27] [cursor=pointer]:
+              - generic [ref=e29]: أخضر
+          - button "Switch to English" [ref=e30] [cursor=pointer]: EN
+        - generic "أمثلة بحث سريعة" [ref=e31]:
+          - button "سؤر الهرة" [ref=e32] [cursor=pointer]
+          - button "الماء المستعمل" [ref=e33] [cursor=pointer]
+          - button "صلاة المسافر" [ref=e34] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e40] [cursor=pointer]:
+    - img [ref=e41]
+  - alert [ref=e44]
